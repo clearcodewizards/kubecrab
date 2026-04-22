@@ -1,9 +1,22 @@
 <%= turbo_frame_tag template_option do %>
-  <%= form_for template_option, url: admin_template_option_path(template_option.template, template_option), method: :delete, html: {class: "mt-4 sm:flex sm:items-center"} do |form| %>
-    <%= form.label :name, class: css_label %>
-    <div class="w-full">
-      <%= form.text_field :name, disabled: true, class: "ml-3 #{css_text}" %>
+  <%= form_for template_option, url: admin_template_option_path(template_option.template, template_option), method: :delete, html: {class: "mt-4 p-4 rounded-lg border border-gray-200 dark:border-white/10"} do |form| %>
+    <div class="sm:flex sm:items-center">
+      <%= form.label :name, class: css_label %>
+      <div class="w-full">
+        <%= form.text_field :name, disabled: true, class: "ml-3 #{css_text}" %>
+      </div>
+      <% unless template_option.provisioner.present? %>
+        <%= form.submit "Delete", class: "ml-6 #{css_button}" %>
+      <% end %>
     </div>
-    <%= form.submit "Delete", class: "ml-6 #{css_button_secondary}" %>
+    <% if template_option.provisioner.present? %>
+      <div class="mt-2 sm:flex sm:items-center">
+        <%= form.label :provisioner, class: css_label %>
+        <div class="w-full">
+          <%= form.text_field :provisioner, disabled: true, class: "ml-3 #{css_text}" %>
+        </div>
+        <%= form.submit "Delete", class: "ml-6 #{css_button}" %>
+      </div>
+    <% end %>
   <% end %>
 <% end %>

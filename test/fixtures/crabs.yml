@@ -1,0 +1,6 @@
+default:
+  name: my-crab
+  options: "{}"
+  status: creating
+  template: default
+  user: admin

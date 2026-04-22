@@ -2,7 +2,7 @@
 
 class TemplateOptionPolicy < ApplicationPolicy
   def permitted_attributes
-    %i[name]
+    %i[name provisioner]
   end
 
   class Scope < ApplicationPolicy::Scope

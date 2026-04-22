@@ -1,9 +1,20 @@
 <%= turbo_frame_tag "options_frame_new" do %>
-  <%= form_for @template_option, url: admin_template_options_path(@template), html: {class: "mt-4 sm:flex sm:items-center"} do |form| %>
-    <%= form.label :name, class: css_label %>
-    <div class="w-full">
-      <%= form.text_field :name, autocomplete: "name", placeholder: "user_input", class: "ml-3 #{css_text}" %>
+  <%= form_for @template_option, url: admin_template_options_path(@template), html: {class: "mt-4"} do |form| %>
+    <div class="sm:flex sm:items-center">
+      <%= form.label :name, class: css_label %>
+      <div class="w-full">
+        <%= form.text_field :name, autocomplete: "name", placeholder: "user_input", class: "ml-3 #{css_text}" %>
+      </div>
     </div>
-    <%= form.submit "Create", class: "ml-6 #{css_button}" %>
+    <div class="mt-4">
+      <%= form.label :provisioner, "Secret provisioner class (optional)", class: css_label %>
+      <div class="mt-2 grid grid-cols-1">
+        <%= form.select :provisioner, available_provisioners, { include_blank: "None (user input)" }, class: css_select %>
+        <svg viewBox="0 0 16 16" fill="currentColor" data-slot="icon" aria-hidden="true" class="pointer-events-none col-start-1 row-start-1 mr-2 size-5 self-center justify-self-end text-gray-500 sm:size-4 dark:text-gray-400">
+          <path d="M4.22 6.22a.75.75 0 0 1 1.06 0L8 8.94l2.72-2.72a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" fill-rule="evenodd" />
+        </svg>
+      </div>
+    </div>
+    <%= form.submit "Create", class: "mt-4 #{css_button}" %>
   <% end %>
 <% end %>

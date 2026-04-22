@@ -1,0 +1,8 @@
+plain:
+  name: api_url
+  template: default
+
+with_provisioner:
+  name: timestamp
+  provisioner: UnixTimestampProvisioner
+  template: default

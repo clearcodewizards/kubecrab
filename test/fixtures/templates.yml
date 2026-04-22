@@ -1,0 +1,5 @@
+default:
+  name: My Template
+  template: "key: value"
+  status: active
+  engine: default

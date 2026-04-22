@@ -23,7 +23,7 @@
           <%= form.error_message(:name) %>
         </div>
 
-        <% @crab.template.template_options.each do |option| %>
+        <% @crab.template.template_options.reject(&:provisioner?).each do |option| %>
         <div class="sm:col-span-full">
           <%= form.label option.name, class: css_label %>
           <div class="mt-2">

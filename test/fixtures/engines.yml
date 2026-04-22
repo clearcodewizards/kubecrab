@@ -1,0 +1,7 @@
+default:
+  name: Helm
+  deploy_command: helm install
+  status_command: helm status
+  upgrade_command: helm upgrade
+  restart_command: helm rollout restart
+  destroy_command: helm uninstall
