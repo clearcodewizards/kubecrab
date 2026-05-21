@@ -51,6 +51,30 @@
           <%= form.error_message(:status) %>
         </div>
 
+        <div class="sm:col-span-2">
+          <%= form.label :limit, "Limit per user", class: css_label %>
+          <div class="mt-2">
+            <%= form.number_field :limit, min: 1, autocomplete: "none", class: css_text %>
+          </div>
+          <%= form.error_message(:limit) %>
+        </div>
+
+        <div class="sm:col-span-4">
+          <%= form.label :base_url, class: css_label %>
+          <div class="mt-2">
+            <%= form.text_field :base_url, autocomplete: "none", class: css_text %>
+          </div>
+          <%= form.error_message(:base_url) %>
+        </div>
+
+        <div class="sm:col-span-full">
+          <%= form.label :stripe_payment_link, class: css_label %>
+          <div class="mt-2">
+            <%= form.text_field :stripe_payment_link, autocomplete: "none", class: css_text %>
+          </div>
+          <%= form.error_message(:stripe_payment_link) %>
+        </div>
+
         <div class="col-span-full">
           <%= form.label :description, class: css_label %>
           <div class="mt-2">

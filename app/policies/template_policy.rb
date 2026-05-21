@@ -6,7 +6,7 @@ class TemplatePolicy < ApplicationPolicy
   end
 
   def permitted_attributes
-    %i[name avatar description instruction template status engine_id]
+    %i[name avatar limit base_url stripe_payment_link description instruction template status engine_id]
   end
 
   class Scope < ApplicationPolicy::Scope

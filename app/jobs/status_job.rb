@@ -19,6 +19,7 @@ class StatusJob < ApplicationJob
 
   def filter_status(output)
     return :creating if output.include?("Pending")
+    return :stopping if output.include?("Terminating")
     return :stopped if output.include?("Succeeded")
     return :error if output.include?("Failed") || output.include?("Unknown")
 

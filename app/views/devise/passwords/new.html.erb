@@ -12,6 +12,7 @@
           <div class="mt-2">
             <%= form.email_field :email, autofocus: true, autocomplete: "email", class: css_text %>
           </div>
+          <%= form.error_message(:email) %>
         </div>
 
         <div>

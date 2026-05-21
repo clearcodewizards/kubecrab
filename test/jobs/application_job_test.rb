@@ -23,4 +23,10 @@ class ApplicationJobTest < ActiveSupport::TestCase
 
     assert_not @job.options.key?("api_url")
   end
+
+  test "crab_init sets name from crab" do
+    @job.crab_init(@crab)
+
+    assert_equal @crab.name, @job.name
+  end
 end

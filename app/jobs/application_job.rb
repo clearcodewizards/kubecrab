@@ -1,7 +1,8 @@
 class ApplicationJob < ActiveJob::Base
-  attr_reader :crab_id, :user_id, :options, :template, :secrets
+  attr_reader :name, :crab_id, :user_id, :options, :template, :secrets
 
   def crab_init(crab)
+    @name = crab.name
     @crab_id = crab.id
     @user_id = crab.user.id
     @options = crab.options

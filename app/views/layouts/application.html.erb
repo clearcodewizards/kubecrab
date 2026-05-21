@@ -146,6 +146,22 @@
 
   <main class="py-10">
     <div class="px-4 sm:px-6 lg:px-8">
+      <% if flash[:alert] || flash[:notice] %>
+      <div data-controller="autohide" data-autohide-target="div" class="mb-4 p-4 border-1 rounded-lg <%= flash[:alert] ? "bg-yellow-50 border-yellow-700" : "bg-green-50 border-green-700" %>">
+        <div class="flex">
+          <div class="shrink-0">
+            <%= heroicon "exclamation-triangle", options: {class: "size-5 text-yellow-700"} if flash[:alert] %>
+            <%= heroicon "check", options: {class: "size-5 text-green-700"} if flash[:notice] %>
+          </div>
+          <div class="ml-3">
+            <p class="text-sm <%= flash[:alert] ? "text-yellow-700" : "text-green-700" %>">
+              <%= flash[:alert] || flash[:notice] %>
+            </p>
+          </div>
+        </div>
+      </div>
+      <% end %>
+
       <%= yield %>
     </div>
   </main>
