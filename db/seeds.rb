@@ -19,9 +19,9 @@ ActiveRecord::Migration.say_with_time("Creating engines...") do
   Engine.find_or_create_by(
     name: "kubernetes",
     deploy_command: "kubectl apply -f <%= template %>",
-    status_command: "kubectl -n <%= user_id %> get pod -l app=<%= crab_id %>",
+    status_command: "kubectl -n ns<%= user_id %> get pod -l app=app<%= crab_id %>",
     upgrade_command: "kubectl apply -f <%= template %>",
-    restart_command: "kubectl -n <%= user_id %> rollout restart deployment <%= crab_id %>",
+    restart_command: "kubectl -n ns<%= user_id %> rollout restart deployment app<%= crab_id %>",
     destroy_command: "kubectl delete -f <%= template %>"
   )
 end

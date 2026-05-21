@@ -26,13 +26,15 @@ module Kubecrab
     config.mission_control.jobs.http_basic_auth_enabled = false
 
     config.x.theme.menu = {
-      "Deploy Crab": ["bolt", "/templates"],
-      "Your Crabs": ["cube", "/crabs"]
+      "Your Crabs": ["cube", "/crabs"],
+      "Deploy Crab": ["bolt", "/templates"]
     }
     config.x.theme.admin_menu = {
       "Crab Templates": ["bolt", "/admin/templates"],
       "Crab Engines": ["cpu-chip", "/admin/engines"],
       Users: ["users", "/admin/users"]
     }
+    config.x.exclude_names = %w[app www]
+    config.x.auto_deploy_template = nil # template id
   end
 end

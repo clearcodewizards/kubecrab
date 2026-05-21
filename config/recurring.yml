@@ -16,3 +16,8 @@ production:
   status_job:
     class: StatusJob
     schedule: every 30 seconds
+
+# Enable when using Stripe
+#  process_payments_job:
+#    class: ProcessPaymentsJob
+#    schedule: every 5 seconds

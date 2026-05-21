@@ -3,7 +3,7 @@ module Admin
     before_action :set_user, only: %i[edit update destroy]
 
     def index
-      @users = authorize(policy_scope(User))
+      @pagy, @users = pagy(:offset, authorize(policy_scope(User)))
     end
 
     def edit; end
@@ -13,7 +13,7 @@ module Admin
         if @user.update(permitted_attributes(@user))
           format.html { redirect_to admin_users_path, notice: "User has been updated." }
         else
-          format.html { render :show, status: :unprocessable_content }
+          format.html { render :edit, status: :unprocessable_content }
         end
       end
     end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_04_21_222441) do
+ActiveRecord::Schema[8.0].define(version: 2026_04_24_111602) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -82,8 +82,20 @@ ActiveRecord::Schema[8.0].define(version: 2026_04_21_222441) do
     t.datetime "updated_at", null: false
     t.text "description", default: "", null: false
     t.text "instruction", default: "", null: false
+    t.string "stripe_payment_link"
+    t.integer "limit", default: 1, null: false
+    t.string "base_url", default: "crabs.example.com", null: false
     t.index ["engine_id"], name: "index_templates_on_engine_id"
     t.index ["name"], name: "index_templates_on_name", unique: true
+  end
+
+  create_table "user_templates", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "template_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["template_id"], name: "index_user_templates_on_template_id"
+    t.index ["user_id"], name: "index_user_templates_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -106,4 +118,6 @@ ActiveRecord::Schema[8.0].define(version: 2026_04_21_222441) do
   add_foreign_key "crabs", "users"
   add_foreign_key "template_options", "templates"
   add_foreign_key "templates", "engines"
+  add_foreign_key "user_templates", "templates"
+  add_foreign_key "user_templates", "users"
 end

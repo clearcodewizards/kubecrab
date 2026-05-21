@@ -12,20 +12,7 @@
           <div class="mt-2">
             <%= form.email_field :email, autofocus: true, autocomplete: "email", class: css_text %>
           </div>
-        </div>
-
-        <div>
-          <%= form.label :password, class: css_label %>
-          <div class="mt-2">
-            <%= form.password_field :password, autocomplete: "new-password", class: css_password %>
-          </div>
-        </div>
-
-        <div>
-          <%= form.label :password_confirmation, class: css_label %>
-          <div class="mt-2">
-            <%= form.password_field :password_confirmation, autocomplete: "new-password", class: css_password %>
-          </div>
+          <%= form.error_message(:email) %>
         </div>
 
         <div>
