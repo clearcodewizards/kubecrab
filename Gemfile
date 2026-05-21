@@ -3,6 +3,7 @@ source "https://rubygems.org"
 gem "bcrypt", "~> 3.1.7"
 gem "bootsnap", require: false
 gem "devise", "~> 5.0", ">= 5.0.3"
+gem "haikunator"
 gem "heroicons", "~> 2.2"
 gem "importmap-rails"
 gem "jbuilder"
