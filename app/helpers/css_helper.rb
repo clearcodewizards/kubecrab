@@ -1,12 +1,17 @@
 module CssHelper
   def css_button
-    "cursor-pointer rounded-md bg-red-400 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-red-300 focus-visible:outline-2 " \
-      "focus-visible:outline-offset-2 focus-visible:outline-red-400 dark:shadow-none"
+    "cursor-pointer inline-flex items-center justify-center rounded-md bg-red-400 px-3 py-2 text-sm font-semibold text-white shadow-xs " \
+      "hover:bg-red-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-400 dark:shadow-none"
+  end
+
+  def css_button_small
+    "cursor-pointer inline-flex items-center justify-center rounded-md bg-red-400 px-2 py-1.5 text-xs font-semibold text-white shadow-xs " \
+      "hover:bg-red-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-400 dark:shadow-none"
   end
 
   def css_button_secondary
-    "cursor-pointer rounded-md bg-white/10 px-3 py-2 text-sm font-semibold text-white shadow-xs inset-ring inset-ring-white/5 hover:bg-white/20 " \
-      "dark:shadow-none"
+    "cursor-pointer inline-flex items-center justify-center rounded-md bg-white/10 px-3 py-2 text-sm font-semibold text-white shadow-xs " \
+      "inset-ring inset-ring-white/5 hover:bg-white/20 dark:shadow-none"
   end
 
   def css_label

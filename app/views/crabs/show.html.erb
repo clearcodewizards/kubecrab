@@ -22,12 +22,8 @@
         </div>
 
         <% @crab.template.template_options.each do |option| %>
-        <div class="sm:col-span-full">
-          <%= label_tag "crab_#{option.name}", option.name, class: css_label %>
-          <div class="mt-2">
-            <input type="text" id="crab_<%= option.name %>" name="crab[options][<%= option.name %>]" value="<%= @crab.options[option.name] if @crab.options.present? %>" autocomplete="none" disabled class="<%= css_text %>">
-          </div>
-        </div>
+          <%= render "template_option_password", option: option if password_type?(option.name) %>
+          <%= render "template_option_text", option: option unless password_type?(option.name) %>
         <% end %>
       </div>
 
