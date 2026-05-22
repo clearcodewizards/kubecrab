@@ -1,0 +1,7 @@
+<%# locals: (option:) %>
+        <div class="sm:col-span-full">
+          <%= label_tag "crab_#{option.name}", option.name, class: css_label %>
+          <div class="mt-2">
+            <input type="text" id="crab_<%= option.name %>" name="crab[options][<%= option.name %>]" value="<%= @crab.options[option.name] if @crab.options.present? %>" autocomplete="none" class="<%= css_text %>">
+          </div>
+        </div>

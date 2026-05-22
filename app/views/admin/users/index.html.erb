@@ -7,6 +7,7 @@
   </div>
 </div>
 
+<% unless @users.empty? %>
 <ul role="list" class="my-16 divide-y divide-gray-100 overflow-hidden bg-white shadow-xs outline-1 outline-gray-900/5 sm:rounded-xl dark:divide-white/5 dark:bg-gray-800/50 dark:shadow-none dark:outline-white/10 dark:sm:-outline-offset-1">
   <% @users.each do |user| %>
   <li class="relative flex justify-between gap-x-6 px-4 py-5 hover:bg-gray-50 sm:px-6 dark:hover:bg-white/2.5">
@@ -35,3 +36,5 @@
   </li>
   <% end %>
 </ul>
+<%= render "pagy/nav" %>
+<% end %>

@@ -1,0 +1,9 @@
+<% unless @pagy.last == 1 %>
+<div class="mt-6 flex justify-end items-center gap-x-2">
+  <%= link_to "<<", @pagy.page_url(:first), class: css_button_small %>
+  <%= link_to "<", @pagy.page_url(:previous), class: css_button_small %>
+  <span class="px-4 text-xs text-gray-900 dark:text-white"><%= @pagy.page %> of <%= @pagy.last %></span>
+  <%= link_to ">", @pagy.page_url(:next), class: css_button_small %>
+  <%= link_to ">>", @pagy.page_url(:last), class: css_button_small %>
+</div>
+<% end %>
