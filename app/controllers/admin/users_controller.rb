@@ -26,7 +26,7 @@ module Admin
     private
 
     def set_user
-      @user = User.find(params[:id])
+      @user = User.find(params.expect(:id))
       authorize @user
     end
   end

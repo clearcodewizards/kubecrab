@@ -55,7 +55,7 @@ class CrabsController < ApplicationController
   private
 
   def set_crab
-    @crab = Crab.find(params[:id])
+    @crab = Crab.find(params.expect(:id))
     authorize @crab
   end
 end
