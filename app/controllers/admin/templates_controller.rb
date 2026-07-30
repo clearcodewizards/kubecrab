@@ -42,7 +42,7 @@ module Admin
     private
 
     def set_template
-      @template = Template.find(params[:id])
+      @template = Template.find(params.expect(:id))
       authorize @template
     end
   end

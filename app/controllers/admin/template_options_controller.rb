@@ -48,12 +48,12 @@ module Admin
     private
 
     def set_template
-      @template = Template.find(params[:template_id])
+      @template = Template.find(params.expect(:template_id))
       authorize @template
     end
 
     def set_template_option
-      @template_option = @template.template_options.find(params[:id])
+      @template_option = @template.template_options.find(params.expect(:id))
     end
   end
 end

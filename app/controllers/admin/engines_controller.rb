@@ -40,7 +40,7 @@ module Admin
     private
 
     def set_engine
-      @engine = Engine.find(params[:id])
+      @engine = Engine.find(params.expect(:id))
       authorize @engine
     end
   end
